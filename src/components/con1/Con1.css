@@ -122,3 +122,8 @@
 
 
 
+.con1__skip { opacity: 0; visibility: hidden; position: absolute; top: min(calc(97svh - clamp(0px, calc(20svh - 100px), 90px) + 8px), calc(100svh - 48px)); left: 50%; z-index: 10; display: grid; place-items: center; width: 56px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; transform: translateX(-50%); }
+.con1__skip img { max-width: none; transform: rotate(180deg) scale(1.5); transition: transform .2s ease; }
+.con1__skip:hover img { transform: translateY(4px) rotate(180deg) scale(1.5); }
+.con1__skip:focus-visible { outline: 2px solid #ffcd00; outline-offset: 2px; border-radius: 8px; }
+@media (prefers-reduced-motion: reduce) { .con1__skip img { transition: none; } }

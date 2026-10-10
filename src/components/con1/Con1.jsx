@@ -35,12 +35,13 @@ export default function Con1() {
             const products = Array.from(canvas.querySelectorAll('.con1__product'));
             const heading = canvas.querySelector('.con1__heading');
             const ui = stage.querySelector('.con1__showcase-ui');
+            const skip = stage.querySelector('.con1__skip');
             const slotInfo = Array.from(ui.querySelectorAll('.con1__slot-info'));
             const focusInfo = Array.from(ui.querySelectorAll('.con1__focus-info'));
             const viewportHeight = () => document.documentElement.clientHeight;
             const slots = mobile
-                ? [[.17, .13], [.50, .09], [.83, .15], [.17, .43], [.83, .46], [.17, .65], [.83, .67]]
-                : [[.16, .15], [.49, .10], [.84, .18], [.13, .44], [.87, .47], [.19, .65], [.81, .68]];
+                ? [[.25, .18], [.50, .08], [.75, .18], [.14, .42], [.86, .42], [.20, .66], [.80, .66]]
+                : [[.25, .18], [.50, .08], [.75, .18], [.12, .42], [.88, .42], [.22, .66], [.78, .66]];
             const photoOf = product => product.querySelector('.con1__image');
             const restingScale = product => Math.min(mobile ? 0.58 : 0.68,
                 canvas.clientWidth * (mobile ? 0.19 : 0.18) / photoOf(product).offsetWidth,
@@ -84,7 +85,8 @@ export default function Con1() {
                         .fromTo(copy, { opacity: 1 }, { opacity: 0, duration: intro * 0.5, immediateRender: false }, 0);
                 });
                 timeline.fromTo(heading, { opacity: 1 }, { opacity: 0, duration: intro, immediateRender: false }, 0)
-                    .fromTo(ui, { autoAlpha: 0 }, { autoAlpha: 1, duration: intro, immediateRender: false }, 0);
+                    .fromTo(ui, { autoAlpha: 0 }, { autoAlpha: 1, duration: intro, immediateRender: false }, 0)
+                    .fromTo(skip, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25, immediateRender: false }, intro);
                 products.forEach((product, index) => {
                     const photo = photoOf(product);
                     const start = intro + index * 1.8;
@@ -125,7 +127,8 @@ export default function Con1() {
                     .to(products.map(photoOf), { scale: 1, rotation: 0, opacity: 1, filter: 'blur(0px) brightness(1)', duration: 0.85 }, outro)
                     .to(products.flatMap(product => Array.from(product.querySelectorAll('h3, .con1__color, .con1__code'))), { opacity: 1, duration: 0.85 }, outro)
                     .to(heading, { opacity: 1, duration: 0.85 }, outro)
-                    .to(ui, { autoAlpha: 0, duration: 0.85 }, outro);
+                    .to(ui, { autoAlpha: 0, duration: 0.85 }, outro)
+                    .to(skip, { autoAlpha: 0, duration: 0.2 }, outro);
             };
             compose();
             const trigger = ScrollTrigger.create({
@@ -162,9 +165,22 @@ export default function Con1() {
         setSelectedShoe(shoe);
         dialogRef.current.showModal();
     };
+    const skipShowcase = () => {
+        const nextSection = sectionRef.current.nextElementSibling;
+        if (!nextSection) return;
+        // Skip directly rather than rapidly playing all seven scrubbed scenes.
+        const trigger = ScrollTrigger.getById('best-sellers-showcase');
+        window.scrollTo({ top: nextSection.getBoundingClientRect().top + window.scrollY, behavior: 'instant' });
+        ScrollTrigger.update();
+        trigger?.getTween()?.progress(1);
+        trigger?.animation?.progress(1);
+    };
     return (
         <section className="con1" ref={sectionRef} aria-labelledby="con1-title">
             <div className="con1__stage" ref={stageRef}>
+                <button className="con1__skip" type="button" aria-label="BEST SELLERS 애니메이션 건너뛰고 다음 섹션으로 이동" onClick={skipShowcase}>
+                    <img src="/images/top/arrow-default.svg" alt="" aria-hidden="true" />
+                </button>
                 <div className="con1__canvas" ref={canvasRef}>
                     <div className="con1__tiger" aria-hidden="true"><img src="/images/con1/tiger.svg" alt="" /></div>
                     <div className="con1__heading">

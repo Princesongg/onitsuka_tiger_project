@@ -22,9 +22,11 @@
 .con4__more-arrow { display: grid; }
 .con4__more-arrow img { grid-area: 1 / 1; }
 .con4__arrow-hover { opacity: 0; }
-.con4__card:is(:hover, :focus-within) .con4__more { background: #ffcd00; color: #000; }
-.con4__card:is(:hover, :focus-within) .con4__arrow-default { opacity: 0; }
-.con4__card:is(:hover, :focus-within) .con4__arrow-hover { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+.con4__card:hover .con4__more { background: #ffcd00; color: #000; }
+.con4__card:hover .con4__arrow-default { opacity: 0; }
+.con4__card:hover .con4__arrow-hover { opacity: 1; }
+}
 @media (prefers-reduced-motion: reduce) {
     .con4__more { transition: none; }
 }

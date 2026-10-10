@@ -10,7 +10,8 @@ import Con7 from './components/con7/Con7';
 import Con8 from './components/con8/Con8';
 import Con9 from './components/con9/Con9';
 import Footer from './components/footer/Footer';
-const App = () => <><main><Hero /><Con1 /><Con2 /><Con3 /><Con4 /><Con5 /><Con6 /><Con7 /><Con8 /><Con9 /></main><Footer /></>;
+import BackToTop from './components/shared/BackToTop';
+const App = () => <><main><Hero /><Con1 /><Con2 /><Con3 /><Con4 /><Con5 /><Con6 /><Con7 /><Con8 /><Con9 /></main><Footer /><BackToTop /></>;
 export default App;
 
 

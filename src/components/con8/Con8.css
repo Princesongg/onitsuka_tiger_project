@@ -8,3 +8,6 @@
 .con8__photo--bottom { top: 47.5%; left: 18.28125%; width: 87.447917%; height: 39.166667%; border-bottom-left-radius: 10.416667cqw; }
 .con8__photo--bottom img { width: 100%; height: 100%; object-fit: cover; }
 .con8__canvas > h2 { position: absolute; top: 29.907407%; left: 48.984375%; width: 61.40625%; height: 12.962963%; transform: translateX(-50%); margin: 0; font: 400 5cqw/normal 'Bevan', Georgia, serif; text-align: center; white-space: nowrap; }
+.con8__underline { position: absolute; top: 28.981481%; left: 28.333333%; width: 67.357604%; height: 32.460556%; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.con8__underline-crop { position: relative; flex: none; width: 66.665573cqw; height: 9.67474cqw; overflow: hidden; opacity: .6; transform: rotate(-7.47deg); }
+.con8__underline-crop img { position: absolute; top: -46.36%; left: .57%; width: 100%; height: 167.89%; max-width: none; }

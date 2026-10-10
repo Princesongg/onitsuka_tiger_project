@@ -1,4 +1,4 @@
-﻿.con2 { background: #000; color: #fff; font-family: 'SUITE', sans-serif; overflow: hidden; }
+.con2 { background: #000; color: #fff; font-family: 'SUITE', sans-serif; overflow: hidden; }
 .con2__inner { container-type: inline-size; max-width: 1920px; margin-inline: auto; padding-top: 5.677cqw; padding-bottom: 5.3cqw; }
 .con2__header { position: relative; margin: 0 4.167cqw; height: 9.948cqw; }
 .con2__header h2 { margin: 0; padding-top: .469cqw; text-align: center; font: 400 2.5cqw/1.4 'Bevan', Georgia, serif; }
@@ -22,9 +22,11 @@
 .con2__arrows { display: block; position: relative; width: 83.5px; height: 7.5px; }
 .con2__arrows .con2__arrow { position: absolute; inset: 0; transition: opacity 180ms ease; }
 .con2__arrow--hover { opacity: 0; }
-.con2__card:is(:hover, :focus-within) .con2__colors { background: #ffcd00; color: #000; }
-.con2__card:is(:hover, :focus-within) .con2__arrow { opacity: 0; }
-.con2__card:is(:hover, :focus-within) .con2__arrow--hover { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+.con2__card:hover .con2__colors { background: #ffcd00; color: #000; }
+.con2__card:hover .con2__arrow { opacity: 0; }
+.con2__card:hover .con2__arrow--hover { opacity: 1; }
+}
 .con2__colors:focus-visible { outline: 2px solid #ffcd00; outline-offset: -4px; }
 .con2__footer { margin: 8.281cqw 4.167cqw 0; text-align: right; color: #ffcd00; font: 400 1.25cqw/1.4 'Bevan', Georgia, serif; }
 .con2__dialog { width: min(90vw, 595px); max-width: none; max-height: 92dvh; padding: 0; border: 0; border-radius: 0 80px 0 80px; background: #fff; color: #000; }

@@ -20,9 +20,11 @@
 .con9__arrow { display: grid; }
 .con9__arrow img { grid-area: 1 / 1; max-width: none; transform: scale(calc(100cqw / 1920px)); transform-origin: right top; }
 .con9__arrow-hover { opacity: 0; }
-.con9__card:is(:hover, :focus-within) .con9__more { background: #ffcd00; color: #000; }
-.con9__card:is(:hover, :focus-within) .con9__arrow-default { opacity: 0; }
-.con9__card:is(:hover, :focus-within) .con9__arrow-hover { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+.con9__card:hover .con9__more { background: #ffcd00; color: #000; }
+.con9__card:hover .con9__arrow-default { opacity: 0; }
+.con9__card:hover .con9__arrow-hover { opacity: 1; }
+}
 .con9__more:focus-visible { outline: 2px solid #000; outline-offset: -4px; }
 .con9__canvas > h2 { position: absolute; top: 87.962963%; left: 88.307292%; transform: translateX(-50%); margin: 0; color: #ffcd00; font: 400 1.25cqw/normal 'Bevan', Georgia, serif; white-space: nowrap; }
 .con9__dialog { width: min(90vw, 580px); max-height: 90dvh; padding: 0; border: 0; border-radius: 0 50px 0 50px; background: #fff; color: #000; }

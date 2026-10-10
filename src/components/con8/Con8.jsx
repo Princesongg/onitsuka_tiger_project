@@ -14,6 +14,11 @@ export default function Con8() {
                     <img src="/images/con8/bag.png" alt="오렌지색 스트랩과 체인이 달린 분홍색 Onitsuka Tiger 가방" loading="lazy" />
                 </div>
                 <h2 id="con8-title">BAG &amp; ACCESSORIES</h2>
+                <div className="con8__underline" aria-hidden="true">
+                    <div className="con8__underline-crop">
+                        <img src="/images/con8/underline.png" alt="" />
+                    </div>
+                </div>
             </div>
         </section>
     );
