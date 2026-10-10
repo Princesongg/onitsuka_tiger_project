@@ -1,0 +1,23 @@
+.con7 { background: #000; color: #fff; font-family: 'SUITE', sans-serif; }
+.con7__canvas { position: relative; container-type: inline-size; width: 100%; max-width: 1920px; aspect-ratio: 1920 / 1080; margin-inline: auto; overflow: hidden; }
+.con7__tiger { position: absolute; top: 10.09%; left: 3.91%; }
+.con7__tiger img { max-width: none; transform: scale(calc(100cqw / 1920px)); transform-origin: top left; }
+.con7__gallery { position: absolute; left: 4.166667%; right: 0; top: 22.222222%; display: flex; gap: 1.5625cqw; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x proximity; }
+.con7__gallery { padding-right: 4.167cqw; }
+.con7__gallery::-webkit-scrollbar { display: none; }
+.con7__gallery:focus-visible { outline: 2px solid #ffcd00; outline-offset: -2px; }
+.con7__card { position: relative; flex: 0 0 20.833333cqw; height: 31.25cqw; overflow: hidden; border-radius: 0 2.604167cqw 0 2.604167cqw; scroll-snap-align: start; }
+.con7__card > img { width: 100%; height: 100%; object-fit: cover; }
+.con7__card--dark-text { color: #000; }
+.con7__label { position: absolute; top: 52.333333%; left: 3%; width: 7.5%; height: 40%; display: flex; align-items: center; justify-content: center; }
+.con7__label h3 { flex-shrink: 0; margin: 0; transform: rotate(-90deg); font-size: 1.25cqw; font-weight: 300; line-height: normal; white-space: nowrap; }
+.con7__canvas > h2 { position: absolute; top: 87.963%; left: 91.380208%; transform: translateX(-50%); margin: 0; color: #ffcd00; font: 400 1.25cqw/normal 'Bevan', Georgia, serif; }
+@media (max-width: 600px) {
+    .con7__canvas { aspect-ratio: auto; padding: 96px 0 72px; }
+    .con7__tiger { top: 24px; left: 20px; }
+    .con7__tiger img { transform: scale(.5); }
+    .con7__gallery { position: relative; top: auto; left: auto; padding-inline: 20px; gap: 18px; scroll-padding-left: 20px; }
+    .con7__card { flex-basis: 70cqw; height: 105cqw; border-radius: 0 36px 0 36px; }
+    .con7__label h3 { font-size: 16px; }
+    .con7__canvas > h2 { top: auto; bottom: 28px; left: auto; right: 20px; transform: none; font-size: 16px; }
+}

@@ -1,0 +1,23 @@
+.con5 {
+    width: 100%;
+    background: #000;
+}
+
+.con5__canvas {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    aspect-ratio: 1920 / 1080;
+    margin-inline: auto;
+    overflow: hidden;
+}
+
+.con5__video {
+    position: absolute;
+    top: 5.185185%;
+    left: 10%;
+    width: 80%;
+    height: 94.814815%;
+    display: block;
+    object-fit: contain;
+}

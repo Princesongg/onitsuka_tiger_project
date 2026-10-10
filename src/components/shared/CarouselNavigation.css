@@ -1,0 +1,14 @@
+.carousel--draggable { cursor: grab; user-select: none; }
+.carousel--dragging { cursor: grabbing; scroll-snap-type: none !important; scroll-behavior: auto !important; }
+.carousel--dragging * { cursor: grabbing !important; }
+.carousel-navigation { display: flex; justify-content: flex-end; gap: 16px; }
+.carousel-navigation button { display: grid; place-items: center; width: 62px; height: 62px; padding: 0; border: 1px solid #ffcd00; border-radius: 50%; background: #000; color: #ffcd00; cursor: pointer; }
+.carousel-navigation svg { width: 36px; height: 12px; stroke: currentColor; stroke-width: 1.5; stroke-dasharray: 2 2; stroke-linecap: round; stroke-linejoin: round; }
+.carousel-navigation__previous { transform: scaleX(-1); }
+.carousel-navigation button:hover:not(:disabled) { background: #ffcd00; color: #000; }
+.carousel-navigation button:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.carousel-navigation button:disabled { border-color: #444; color: #555; cursor: default; }
+.con7__navigation { position: absolute; top: 80%; right: 4.167%; }
+.con9__navigation { position: absolute; top: 80%; right: 4.167%; }
+@media (max-width: 700px) { .carousel-navigation button { width: 40px; height: 40px; } .carousel-navigation svg { width: 26px; height: 9px; } }
+@media (max-width: 600px) { .con7__navigation, .con9__navigation { position: static; margin: 20px 20px 0; } }

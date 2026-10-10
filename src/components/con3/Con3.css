@@ -1,0 +1,28 @@
+.con3 { background: #000; color: #fff; font-family: 'SUITE', sans-serif; overflow: hidden; }
+.con3__canvas { position: relative; container-type: inline-size; max-width: 1920px; aspect-ratio: 1920 / 1500; margin-inline: auto; isolation: isolate; }
+.con3__film { position: absolute; height: 80%; overflow: hidden; }
+.con3__film--main { top: 3.8%; left: 4.167%; width: 28.646%; border-bottom-left-radius: 10.417cqw; }
+.con3__film--side { top: 16.267%; left: 34.115%; width: 10.417%; border-top-right-radius: 10.417cqw; }
+.con3__film video { position: absolute; top: 0; height: 100%; max-width: none; object-fit: cover; }
+.con3__film--main video { left: 0; width: 136.364%; object-position: center; }
+.con3__film--side video { right: 0; width: 375%; object-position: center; }
+.con3__frame { position: absolute; z-index: 1; top: 2.333%; left: 1.354%; width: 45.573%; height: 87.533%; object-fit: cover; opacity: .8; pointer-events: none; }
+.con3__copy { position: absolute; z-index: 2; top: 44.4%; left: 46.875%; width: 44.01%; text-align: center; }
+.con3__new { margin: 0; font-size: 1.25cqw; font-weight: 700; line-height: normal; }
+.con3__copy h2 { margin: 0; font-family: 'Bevan', Georgia, serif; font-size: 4.427cqw; font-weight: 400; line-height: 1.365; }
+.con3__description { margin: .521cqw 0 0; font-size: 1.146cqw; line-height: normal; }
+.con3__tiger { position: absolute; top: 53.27%; left: 68.85%; width: 24.531%; height: 33.041%; }
+.con3__tiger img { max-width: none; transform: scale(calc(100cqw / 1920px)); transform-origin: top left; }
+@media (max-width: 600px) {
+    .con3__canvas { min-height: 710px; aspect-ratio: auto; }
+    .con3__film { height: 430px; }
+    .con3__film--main { top: 24px; left: 8%; width: 55%; border-bottom-left-radius: 72px; }
+    .con3__film--side { top: 90px; left: 65.5%; width: 20%; border-top-right-radius: 72px; }
+    .con3__frame { top: 14px; left: 3%; width: 86%; height: 466px; }
+    .con3__copy { top: 540px; left: 5%; width: 90%; }
+    .con3__new { font-size: 14px; }
+    .con3__copy h2 { font-size: clamp(32px, 8vw, 46px); }
+    .con3__description { margin-top: 8px; font-size: 14px; }
+    .con3__tiger { top: 520px; left: 66%; }
+    .con3__tiger img { transform: scale(.22); }
+}

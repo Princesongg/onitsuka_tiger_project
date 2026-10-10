@@ -1,0 +1,68 @@
+.con6 {
+    background: #000;
+    color: #ffcd00;
+}
+
+.con6__canvas {
+    position: relative;
+    container-type: inline-size;
+    width: 100%;
+    max-width: 1920px;
+    aspect-ratio: 1920 / 1500;
+    margin-inline: auto;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.con6__photo {
+    position: absolute;
+    width: 41.666667%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.con6__photo--left {
+    top: 9.466667%;
+    left: 0;
+    border-bottom-right-radius: 10.416667cqw;
+}
+
+.con6__photo--right {
+    top: 21.333333%;
+    right: 0;
+    border-top-left-radius: 10.416667cqw;
+}
+
+.con6__tiger {
+    position: absolute;
+    top: 2.27%;
+    left: 47.5%;
+    z-index: -1;
+}
+
+.con6__tiger img {
+    max-width: none;
+    transform: scale(calc(100cqw / 1920px));
+    transform-origin: top left;
+}
+
+.con6__title {
+    position: absolute;
+    top: 13.866667%;
+    left: 50%;
+    width: 8.020833%;
+    height: 72.266667%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.con6__title h2 {
+    flex-shrink: 0;
+    margin: 0;
+    transform: rotate(-90deg);
+    font: 400 5cqw/normal 'Bevan', Georgia, serif;
+    white-space: nowrap;
+    text-align: center;
+}
