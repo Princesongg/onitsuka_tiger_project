@@ -28,7 +28,7 @@ public static class Con1Mask {
     }
 }
 "@
-$assetDirectory = Join-Path $PSScriptRoot '../public/images/con1'
+$assetDirectory = Join-Path $PSScriptRoot '../images/con1'
 Get-ChildItem $assetDirectory -Filter *.png | Where-Object { $_.Name -ne 'logo-yellow.png' } | ForEach-Object {
         $displayMask = [Con1Mask]::Build($_.FullName)
     Set-Content -Encoding utf8 -LiteralPath (Join-Path $_.DirectoryName ($_.BaseName + '-mask.svg')) -Value $displayMask

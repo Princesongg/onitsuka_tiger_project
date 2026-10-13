@@ -1,33 +1,92 @@
-import './Con1.css';
+// Main landing interactions.
+(() => {
+    const motion = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
+    function initCarousel(id, selector) {
+        const element = document.getElementById(id);
+        const buttons = [...document.querySelectorAll(`button[aria-controls="${id}"]`)];
+        const update = () => {
+            buttons[0].disabled = element.scrollLeft <= 2;
+            buttons[1].disabled = element.scrollLeft >= element.scrollWidth - element.clientWidth - 2;
+        };
+        const step = () => {
+            const cards = element.querySelectorAll(selector);
+            return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : element.clientWidth;
+        };
+        buttons.forEach((button, index) => button.addEventListener('click', () => element.scrollBy({ left: (index ? 1 : -1) * step(), behavior: motion() })));
+        element.addEventListener('keydown', event => {
+            if (event.target !== element || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+            event.preventDefault();
+            element.scrollBy({ left: (event.key === 'ArrowLeft' ? -1 : 1) * step(), behavior: motion() });
+        });
+        let drag = null, suppressClick = false;
+        element.addEventListener('pointerdown', event => {
+            suppressClick = false;
+            if (event.pointerType === 'mouse' && event.button === 0) drag = { id: event.pointerId, x: event.clientX, scroll: element.scrollLeft, moved: false };
+        });
+        element.addEventListener('pointermove', event => {
+            if (!drag || event.pointerId !== drag.id) return;
+            const distance = event.clientX - drag.x;
+            if (!drag.moved && Math.abs(distance) < 6) return;
+            if (!drag.moved) {
+                drag.moved = true;
+                element.classList.add('carousel--dragging');
+                element.setPointerCapture(drag.id);
+            }
+            event.preventDefault();
+            element.scrollLeft = drag.scroll - distance;
+        });
+        const end = () => {
+            if (!drag) return;
+            suppressClick = drag.moved;
+            const pointerId = drag.id;
+            drag = null;
+            if (element.hasPointerCapture(pointerId)) element.releasePointerCapture(pointerId);
+            element.classList.remove('carousel--dragging');
+        };
+        window.addEventListener('pointerup', end);
+        window.addEventListener('pointercancel', end);
+        element.addEventListener('lostpointercapture', end);
+        element.addEventListener('click', event => {
+            if (suppressClick) { event.preventDefault(); event.stopPropagation(); suppressClick = false; }
+        }, true);
+        element.addEventListener('dragstart', event => event.preventDefault());
+        element.addEventListener('scroll', update, { passive: true });
+        const observer = new ResizeObserver(update);
+        observer.observe(element);
+        element.querySelectorAll(selector).forEach(card => observer.observe(card));
+        element.classList.add('carousel--draggable');
+        update();
+    }
+    initCarousel('con2-carousel', '.con2__card');
+    initCarousel('con7-gallery', '.con7__card');
+    initCarousel('con9-gallery', '.con9__card');
+    document.querySelector('.back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: motion() }));
+    document.querySelector('.hero__search').addEventListener('submit', event => event.preventDefault());
+    const main = document.querySelector('.con3__film--main video');
+    const side = document.querySelector('.con3__film--side video');
+    const sync = () => { if (side.readyState >= 1 && Math.abs(main.currentTime - side.currentTime) > .1) side.currentTime = main.currentTime; };
+    main.addEventListener('timeupdate', sync);
+    side.addEventListener('loadedmetadata', sync);
+    document.querySelectorAll('video[autoplay]').forEach(video => { video.muted = true; video.play().catch(() => {}); });
+    document.querySelector('.con1__skip').addEventListener('click', () => {
+        const nextSection = document.querySelector('.con2');
+        const trigger = window.ScrollTrigger?.getById('best-sellers-showcase');
+        window.scrollTo({ top: nextSection.getBoundingClientRect().top + window.scrollY, behavior: 'instant' });
+        window.ScrollTrigger?.update();
+        trigger?.getTween()?.progress(1);
+        trigger?.animation?.progress(1);
+    });
+})();
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { shoeDetails } from './shoeDetails';
-
-gsap.registerPlugin(ScrollTrigger);
-
-const shoes = [
-    { image: 'mexico-yellow', name: 'MEXICO 66', color: 'YELLOW/BLACK', code: '1183C102.751', x: 319, y: 192, crop: true },
-    { image: 'mexico-sd', name: 'MEXICO 66 SD', color: 'BIRCH/SILVER', code: '1183A592.200', x: 883, y: 73, crop: true },
-    { image: 'gsm', name: 'GSM', color: 'CREAM/BLACK', code: '1183A353.127', x: 1371, y: 325 },
-    { image: 'mexico-sabot', name: 'MEXICO 66 SABOT', color: 'BEIGE/GREEN', code: '1183C123.252', x: 136, y: 671 },
-    { image: 'mexico-birch', name: 'MEXICO 66', color: 'BIRCH/PEACOAT', code: '1183C102.200', x: 1418, y: 819 },
-    { image: 'mexico-vin', name: 'MEXICO 66 SD VIN', color: 'BEIGE/BEET JUICE', code: '1183C015.202', x: 429, y: 1170 },
-    { image: 'mexico-silver', name: 'MEXICO 66', color: 'SILVER/OFF WHITE', code: '1183B566.021', x: 1105, y: 1315 },
-];
-
-export default function Con1() {
-
-    const sectionRef = useRef(null);
-    const stageRef = useRef(null);
-    const canvasRef = useRef(null);
-    const dialogRef = useRef(null);
-
-    useLayoutEffect(() => {
-        const section = sectionRef.current;
-        const stage = stageRef.current;
-        const canvas = canvasRef.current;
+function initShowcase() {
+    const shoes = [{"image":"mexico-yellow","name":"MEXICO 66","color":"YELLOW/BLACK","code":"1183C102.751","x":319,"y":192,"crop":true},{"image":"mexico-sd","name":"MEXICO 66 SD","color":"BIRCH/SILVER","code":"1183A592.200","x":883,"y":73,"crop":true},{"image":"gsm","name":"GSM","color":"CREAM/BLACK","code":"1183A353.127","x":1371,"y":325},{"image":"mexico-sabot","name":"MEXICO 66 SABOT","color":"BEIGE/GREEN","code":"1183C123.252","x":136,"y":671},{"image":"mexico-birch","name":"MEXICO 66","color":"BIRCH/PEACOAT","code":"1183C102.200","x":1418,"y":819},{"image":"mexico-vin","name":"MEXICO 66 SD VIN","color":"BEIGE/BEET JUICE","code":"1183C015.202","x":429,"y":1170},{"image":"mexico-silver","name":"MEXICO 66","color":"SILVER/OFF WHITE","code":"1183B566.021","x":1105,"y":1315}];
+    const gsap = window.gsap;
+    const ScrollTrigger = window.ScrollTrigger;
+    if (!gsap || !ScrollTrigger || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    gsap.registerPlugin(ScrollTrigger);
+        const section = document.querySelector('.con1');
+        const stage = section.querySelector('.con1__stage');
+        const canvas = section.querySelector('.con1__canvas');
         const media = gsap.matchMedia();
         let disposed = false;
         media.add({ mobile: '(max-width: 600px)', desktop: '(min-width: 601px)' }, context => {
@@ -150,118 +209,5 @@ export default function Con1() {
             images.forEach(image => image.removeEventListener('load', refresh));
             media.revert();
         };
-    }, []);
-
-
-    const [selectedShoe, setSelectedShoe] = useState(null);
-    const details = selectedShoe ? shoeDetails[selectedShoe.code] : null;
-    useEffect(() => {
-        if (!selectedShoe) return;
-        const previousOverflow = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
-        return () => { document.body.style.overflow = previousOverflow; };
-    }, [selectedShoe]);
-    const viewShoe = shoe => {
-        setSelectedShoe(shoe);
-        dialogRef.current.showModal();
-    };
-    const skipShowcase = () => {
-        const nextSection = sectionRef.current.nextElementSibling;
-        if (!nextSection) return;
-        // Skip directly rather than rapidly playing all seven scrubbed scenes.
-        const trigger = ScrollTrigger.getById('best-sellers-showcase');
-        window.scrollTo({ top: nextSection.getBoundingClientRect().top + window.scrollY, behavior: 'instant' });
-        ScrollTrigger.update();
-        trigger?.getTween()?.progress(1);
-        trigger?.animation?.progress(1);
-    };
-    return (
-        <section className="con1" ref={sectionRef} aria-labelledby="con1-title">
-            <div className="con1__stage" ref={stageRef}>
-                <button className="con1__skip" type="button" aria-label="BEST SELLERS 애니메이션 건너뛰고 다음 섹션으로 이동" onClick={skipShowcase}>
-                    <img src="/images/top/arrow-default.svg" alt="" aria-hidden="true" />
-                </button>
-                <div className="con1__canvas" ref={canvasRef}>
-                    <div className="con1__tiger" aria-hidden="true"><img src="/images/con1/tiger.svg" alt="" /></div>
-                    <div className="con1__heading">
-                        <img className="con1__logo" src="/images/con1/logo-yellow.png" alt="Onitsuka Tiger" width="225" height="132" />
-                        <h2 id="con1-title">BEST SELLERS</h2>
-                        <p>FOOTWEAR</p>
-                    </div>
-                    <div className="con1__products">
-                        {shoes.map(shoe => (
-                            <article className="con1__product" key={shoe.image}
-                                style={{ '--shoe-x': `${shoe.x / 1920 * 100}%`, '--shoe-y': `${shoe.y / 1800 * 100}%` }}>
-                                <div className={`con1__image${shoe.crop ? ' con1__image--cropped' : ''}${shoe.image === 'gsm' ? ' con1__image--cover' : ''}`}>
-                                    <img className="con1__shoe" src={`/images/con1/${shoe.image}-figma${shoe.image === 'mexico-sabot' ? '-v2' : ''}.png`} alt={`${shoe.name} ${shoe.color}`} loading="lazy" />
-                                </div>
-                                <h3>{shoe.name}</h3>
-                                <p className="con1__color">{shoe.color}</p>
-                                <p className="con1__code"># {shoe.code}</p>
-                                <button className="con1__product-trigger" type="button" onClick={() => viewShoe(shoe)} aria-label={`${shoe.name} ${shoe.color} 상품 설명 보기`} aria-haspopup="dialog" />
-                            </article>
-                        ))}
-                    </div>
-                </div>
-                <div className="con1__showcase-ui" aria-hidden="true">
-                    <div className="con1__surrounding-info">
-                        {shoes.map(shoe => <div className="con1__slot-info" key={shoe.code}>
-                            <p className="con1__slot-name">{shoe.name}</p>
-                            <p>{shoe.color}</p><p># {shoe.code}</p>
-                        </div>)}
-                    </div>
-                    <div className="con1__central-flow">
-                        <div className="con1__focus-region">
-                            {shoes.map(shoe => <div className="con1__focus-info" key={shoe.code}>
-                                <p className="con1__focus-name">{shoe.name}</p>
-                                <p className="con1__focus-color">{shoe.color}</p>
-                                <p className="con1__focus-code"># {shoe.code}</p>
-                            </div>)}
-                        </div>
-                        <div className="con1__brand-region">
-                            <img src="/images/con1/logo-yellow.png" alt="" />
-                            <p className="con1__brand-title">BEST SELLERS</p>
-                            <p className="con1__brand-category">FOOTWEAR</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <dialog className="con1__dialog" ref={dialogRef} aria-labelledby="con1-detail-title" onClose={() => setSelectedShoe(null)} onClick={event => { if (event.target === event.currentTarget) dialogRef.current.close(); }}>
-                {selectedShoe && <div className="con1__detail">
-                    <button className="con1__detail-close" type="button" onClick={() => dialogRef.current.close()} aria-label="상품 설명 닫기" autoFocus>×</button>
-                    <div className="con1__detail-copy">
-                        <p className="con1__detail-category">유니섹스 신발</p>
-                        <p className="con1__detail-brand">Onitsuka Tiger</p>
-                        <h2 id="con1-detail-title">{selectedShoe.name}</h2>
-                        <p className="con1__detail-code">스타일 # {selectedShoe.code}</p>
-                        <p className="con1__detail-description">{details.description}</p>
-                        <details className="con1__detail-features">
-                            <summary>상세정보와 특징</summary>
-                            <ul>{details.features.map(feature => <li key={feature}>{feature}</li>)}</ul>
-                        </details>
-                    </div>
-                    <div className="con1__detail-photo">
-                        <div className={`con1__image${selectedShoe.crop ? ' con1__image--cropped' : ''}${selectedShoe.image === 'gsm' ? ' con1__image--cover' : ''}`}>
-                            <img src={`/images/con1/${selectedShoe.image}.png`} alt={`${selectedShoe.name} ${selectedShoe.color}`} />
-                        </div>
-                    </div>
-                    <div className="con1__detail-info">
-                        <p className="con1__detail-color-label">컬러</p>
-                        <p className="con1__detail-color">{selectedShoe.color}</p>
-                        <p className="con1__detail-price">{details.price}</p>
-                        <a className="con1__detail-link" href={`https://www.onitsukatiger.com/kr/ko-kr/product/${details.slug}/${selectedShoe.code.toLowerCase()}`} target="_blank" rel="noopener noreferrer">공식 상품 보기 <span aria-hidden="true">↗</span></a>
-                    </div>
-                </div>}
-            </dialog>
-        </section>
-    );
 }
-
-
-
-
-
-
-
-
-
+initShowcase();

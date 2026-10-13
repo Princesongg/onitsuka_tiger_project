@@ -2,22 +2,1086 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
+    <link rel="icon" type="image/svg+xml" href="images/onitsuka-tiger.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Onitsuka Tiger" />
-    <meta property="og:image" content="/images/og-onitsuka.png" />
+    <meta property="og:image" content="images/og-onitsuka.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="904" />
     <meta property="og:image:height" content="532" />
     <meta property="og:image:alt" content="Onitsuka Tiger 옐로 로고" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="/images/og-onitsuka.png" />
+    <meta name="twitter:image" content="images/og-onitsuka.png" />
     <title>jhi-onitsuka-tiger-project</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <p id="skipNav">
+      <a href="#content">본문 바로가기</a>
+    </p>
+    <div id="wrap">
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <div class="hero__frame">
+          <video
+            class="hero__video"
+            src="video/hero_nippon%20made.mp4"
+            autoplay=""
+            muted=""
+            loop=""
+            playsinline=""
+            aria-hidden="true"
+          ></video>
+          <header id="header" class="hero__header">
+            <nav class="hero__nav" aria-label="주 메뉴">
+              <span>MENU</span>
+              <span>MAGAZINE</span>
+              <span>BRAND</span>
+            </nav>
+            <div class="hero__logo-tools">
+              <a
+                class="hero__logo"
+                href="index.html"
+                aria-label="Onitsuka Tiger 홈"
+              >
+                <img
+                  src="images/hero/logo.png"
+                  alt="Onitsuka Tiger"
+                  width="128"
+                  height="75"
+                />
+              </a>
+              <div class="hero__tools">
+                <form class="hero__search" role="search">
+                  <img src="images/hero/search.svg" alt="" aria-hidden="true" />
+                  <input type="search" aria-label="상품 검색" name="q" />
+                  <button type="submit" aria-label="검색"></button>
+                </form>
+                <span class="hero__bag">
+                  <img src="images/hero/bag.svg" alt="장바구니" />
+                </span>
+                <span class="hero__account">
+                  <img src="images/hero/account.svg" alt="로그인" />
+                </span>
+              </div>
+            </div>
+          </header>
+          <div class="hero__copy">
+            <h1 id="hero-title">Onitsuka Tiger</h1>
+            <p>INNOVATIVE FACTORY</p>
+          </div>
+        </div>
+      </section>
+      <main id="content" class="main" tabindex="-1">
+        <section class="con1" aria-labelledby="con1-title">
+          <div class="con1__stage">
+            <button
+              class="con1__skip"
+              type="button"
+              aria-label="BEST SELLERS 애니메이션 건너뛰고 다음 섹션으로 이동"
+            >
+              <img
+                src="images/top/arrow-default.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </button>
+            <div class="con1__canvas">
+              <div class="con1__tiger" aria-hidden="true">
+                <img src="images/con1/tiger.svg" alt="" />
+              </div>
+              <div class="con1__heading">
+                <img
+                  class="con1__logo"
+                  src="images/con1/logo-yellow.png"
+                  alt="Onitsuka Tiger"
+                  width="225"
+                  height="132"
+                />
+                <h2 id="con1-title">BEST SELLERS</h2>
+                <p>FOOTWEAR</p>
+              </div>
+              <ul class="con1__products">
+                <li
+                  class="con1__product"
+                  style="
+                    --shoe-x: 16.614583333333332%;
+                    --shoe-y: 10.666666666666668%;
+                  "
+                >
+                  <div class="con1__image con1__image--cropped">
+                    <img
+                      class="con1__shoe"
+                      src="images/con1/mexico-yellow-figma.png"
+                      alt="MEXICO 66 YELLOW/BLACK"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3>MEXICO 66</h3>
+                  <p class="con1__color">YELLOW/BLACK</p>
+                  <p class="con1__code"># 1183C102.751</p>
+                </li>
+                <li
+                  class="con1__product"
+                  style="
+                    --shoe-x: 45.989583333333336%;
+                    --shoe-y: 4.055555555555555%;
+                  "
+                >
+                  <div class="con1__image con1__image--cropped">
+                    <img
+                      class="con1__shoe"
+                      src="images/con1/mexico-sd-figma.png"
+                      alt="MEXICO 66 SD BIRCH/SILVER"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3>MEXICO 66 SD</h3>
+                  <p class="con1__color">BIRCH/SILVER</p>
+                  <p class="con1__code"># 1183A592.200</p>
+                </li>
+                <li
+                  class="con1__product"
+                  style="--shoe-x: 71.40625%; --shoe-y: 18.055555555555554%"
+                >
+                  <div class="con1__image con1__image--cover">
+                    <img
+                      class="con1__shoe"
+                      src="images/con1/gsm-figma.png"
+                      alt="GSM CREAM/BLACK"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3>GSM</h3>
+                  <p class="con1__color">CREAM/BLACK</p>
+                  <p class="con1__code"># 1183A353.127</p>
+                </li>
+                <li
+                  class="con1__product"
+                  style="
+                    --shoe-x: 7.083333333333333%;
+                    --shoe-y: 37.27777777777778%;
+                  "
+                >
+                  <div class="con1__image">
+                    <img
+                      class="con1__shoe"
+                      src="images/con1/mexico-sabot-figma-v2.png"
+                      alt="MEXICO 66 SABOT BEIGE/GREEN"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3>MEXICO 66 SABOT</h3>
+                  <p class="con1__color">BEIGE/GREEN</p>
+                  <p class="con1__code"># 1183C123.252</p>
+                </li>
+                <li
+                  class="con1__product"
+                  style="--shoe-x: 73.85416666666667%; --shoe-y: 45.5%"
+                >
+                  <div class="con1__image">
+                    <img
+                      class="con1__shoe"
+                      src="images/con1/mexico-birch-figma.png"
+                      alt="MEXICO 66 BIRCH/PEACOAT"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3>MEXICO 66</h3>
+                  <p class="con1__color">BIRCH/PEACOAT</p>
+                  <p class="con1__code"># 1183C102.200</p>
+                </li>
+                <li
+                  class="con1__product"
+                  style="--shoe-x: 22.34375%; --shoe-y: 65%"
+                >
+                  <div class="con1__image">
+                    <img
+                      class="con1__shoe"
+                      src="images/con1/mexico-vin-figma.png"
+                      alt="MEXICO 66 SD VIN BEIGE/BEET JUICE"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3>MEXICO 66 SD VIN</h3>
+                  <p class="con1__color">BEIGE/BEET JUICE</p>
+                  <p class="con1__code"># 1183C015.202</p>
+                </li>
+                <li
+                  class="con1__product"
+                  style="
+                    --shoe-x: 57.552083333333336%;
+                    --shoe-y: 73.05555555555556%;
+                  "
+                >
+                  <div class="con1__image">
+                    <img
+                      class="con1__shoe"
+                      src="images/con1/mexico-silver-figma.png"
+                      alt="MEXICO 66 SILVER/OFF WHITE"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3>MEXICO 66</h3>
+                  <p class="con1__color">SILVER/OFF WHITE</p>
+                  <p class="con1__code"># 1183B566.021</p>
+                </li>
+              </ul>
+            </div>
+            <div class="con1__showcase-ui" aria-hidden="true">
+              <div class="con1__surrounding-info">
+                <div class="con1__slot-info">
+                  <p class="con1__slot-name">MEXICO 66</p>
+                  <p>YELLOW/BLACK</p>
+                  <p># 1183C102.751</p>
+                </div>
+                <div class="con1__slot-info">
+                  <p class="con1__slot-name">MEXICO 66 SD</p>
+                  <p>BIRCH/SILVER</p>
+                  <p># 1183A592.200</p>
+                </div>
+                <div class="con1__slot-info">
+                  <p class="con1__slot-name">GSM</p>
+                  <p>CREAM/BLACK</p>
+                  <p># 1183A353.127</p>
+                </div>
+                <div class="con1__slot-info">
+                  <p class="con1__slot-name">MEXICO 66 SABOT</p>
+                  <p>BEIGE/GREEN</p>
+                  <p># 1183C123.252</p>
+                </div>
+                <div class="con1__slot-info">
+                  <p class="con1__slot-name">MEXICO 66</p>
+                  <p>BIRCH/PEACOAT</p>
+                  <p># 1183C102.200</p>
+                </div>
+                <div class="con1__slot-info">
+                  <p class="con1__slot-name">MEXICO 66 SD VIN</p>
+                  <p>BEIGE/BEET JUICE</p>
+                  <p># 1183C015.202</p>
+                </div>
+                <div class="con1__slot-info">
+                  <p class="con1__slot-name">MEXICO 66</p>
+                  <p>SILVER/OFF WHITE</p>
+                  <p># 1183B566.021</p>
+                </div>
+              </div>
+              <div class="con1__central-flow">
+                <div class="con1__focus-region">
+                  <div class="con1__focus-info">
+                    <p class="con1__focus-name">MEXICO 66</p>
+                    <p class="con1__focus-color">YELLOW/BLACK</p>
+                    <p class="con1__focus-code"># 1183C102.751</p>
+                  </div>
+                  <div class="con1__focus-info">
+                    <p class="con1__focus-name">MEXICO 66 SD</p>
+                    <p class="con1__focus-color">BIRCH/SILVER</p>
+                    <p class="con1__focus-code"># 1183A592.200</p>
+                  </div>
+                  <div class="con1__focus-info">
+                    <p class="con1__focus-name">GSM</p>
+                    <p class="con1__focus-color">CREAM/BLACK</p>
+                    <p class="con1__focus-code"># 1183A353.127</p>
+                  </div>
+                  <div class="con1__focus-info">
+                    <p class="con1__focus-name">MEXICO 66 SABOT</p>
+                    <p class="con1__focus-color">BEIGE/GREEN</p>
+                    <p class="con1__focus-code"># 1183C123.252</p>
+                  </div>
+                  <div class="con1__focus-info">
+                    <p class="con1__focus-name">MEXICO 66</p>
+                    <p class="con1__focus-color">BIRCH/PEACOAT</p>
+                    <p class="con1__focus-code"># 1183C102.200</p>
+                  </div>
+                  <div class="con1__focus-info">
+                    <p class="con1__focus-name">MEXICO 66 SD VIN</p>
+                    <p class="con1__focus-color">BEIGE/BEET JUICE</p>
+                    <p class="con1__focus-code"># 1183C015.202</p>
+                  </div>
+                  <div class="con1__focus-info">
+                    <p class="con1__focus-name">MEXICO 66</p>
+                    <p class="con1__focus-color">SILVER/OFF WHITE</p>
+                    <p class="con1__focus-code"># 1183B566.021</p>
+                  </div>
+                </div>
+                <div class="con1__brand-region">
+                  <img src="images/con1/logo-yellow.png" alt="" />
+                  <p class="con1__brand-title">BEST SELLERS</p>
+                  <p class="con1__brand-category">FOOTWEAR</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="con2" aria-labelledby="con2-title">
+          <div class="con2__inner">
+            <header class="con2__header">
+              <div class="con2__tiger" aria-hidden="true">
+                <img src="images/con2/tiger.svg" alt="" />
+              </div>
+              <h2 id="con2-title">EXPLORE BY MODEL</h2>
+            </header>
+            <div
+              class="con2__carousel"
+              id="con2-carousel"
+              tabindex="0"
+              aria-label="모델 목록, 좌우로 스크롤하여 확인"
+              role="region"
+            >
+              <ul class="con2__track">
+                <li class="con2__card">
+                  <div class="con2__image con2__image--cropped">
+                    <img
+                      src="images/con2/mexico-66.png"
+                      alt="MEXICO 66"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="con2__details">
+                    <p class="con2__brand">Onitsuka Tiger</p>
+                    <h3>MEXICO 66</h3>
+                    <p class="con2__price">₩196,000</p>
+                  </div>
+                  <div class="con2__colors">
+                    <span>VIEW ALL COLORS</span>
+                    <span class="con2__arrows" aria-hidden="true">
+                      <img
+                        class="con2__arrow"
+                        src="images/con2/arrow.svg"
+                        alt=""
+                      />
+                      <img
+                        class="con2__arrow con2__arrow--hover"
+                        src="images/con2/arrow-hover.svg"
+                        alt=""
+                      />
+                    </span>
+                  </div>
+                </li>
+                <li class="con2__card">
+                  <div class="con2__image">
+                    <img
+                      src="images/con2/mexico-66-sd.png"
+                      alt="MEXICO 66 SD"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="con2__details">
+                    <p class="con2__brand">Onitsuka Tiger</p>
+                    <h3>MEXICO 66 SD</h3>
+                    <p class="con2__price">₩220,000</p>
+                  </div>
+                  <div class="con2__colors">
+                    <span>VIEW ALL COLORS</span>
+                    <span class="con2__arrows" aria-hidden="true">
+                      <img
+                        class="con2__arrow"
+                        src="images/con2/arrow.svg"
+                        alt=""
+                      />
+                      <img
+                        class="con2__arrow con2__arrow--hover"
+                        src="images/con2/arrow-hover.svg"
+                        alt=""
+                      />
+                    </span>
+                  </div>
+                </li>
+                <li class="con2__card">
+                  <div class="con2__image">
+                    <img
+                      src="images/con2/sclaw.png"
+                      alt="SCLAW"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="con2__details">
+                    <p class="con2__brand">Onitsuka Tiger</p>
+                    <h3>SCLAW</h3>
+                    <p class="con2__price">₩250,000</p>
+                  </div>
+                  <div class="con2__colors">
+                    <span>VIEW ALL COLORS</span>
+                    <span class="con2__arrows" aria-hidden="true">
+                      <img
+                        class="con2__arrow"
+                        src="images/con2/arrow.svg"
+                        alt=""
+                      />
+                      <img
+                        class="con2__arrow con2__arrow--hover"
+                        src="images/con2/arrow-hover.svg"
+                        alt=""
+                      />
+                    </span>
+                  </div>
+                </li>
+                <li class="con2__card">
+                  <div class="con2__image">
+                    <img
+                      src="images/con2/tiger-corsair.png"
+                      alt="TIGER CORSAIR"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="con2__details">
+                    <p class="con2__brand">Onitsuka Tiger</p>
+                    <h3>TIGER CORSAIR</h3>
+                    <p class="con2__price">₩230,000</p>
+                  </div>
+                  <div class="con2__colors">
+                    <span>VIEW ALL COLORS</span>
+                    <span class="con2__arrows" aria-hidden="true">
+                      <img
+                        class="con2__arrow"
+                        src="images/con2/arrow.svg"
+                        alt=""
+                      />
+                      <img
+                        class="con2__arrow con2__arrow--hover"
+                        src="images/con2/arrow-hover.svg"
+                        alt=""
+                      />
+                    </span>
+                  </div>
+                </li>
+                <li class="con2__card">
+                  <div class="con2__image">
+                    <img
+                      src="images/con2/edr78.png"
+                      alt="EDR78"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="con2__details">
+                    <p class="con2__brand">Onitsuka Tiger</p>
+                    <h3>EDR78</h3>
+                    <p class="con2__price">₩200,000</p>
+                  </div>
+                  <div class="con2__colors">
+                    <span>VIEW ALL COLORS</span>
+                    <span class="con2__arrows" aria-hidden="true">
+                      <img
+                        class="con2__arrow"
+                        src="images/con2/arrow.svg"
+                        alt=""
+                      />
+                      <img
+                        class="con2__arrow con2__arrow--hover"
+                        src="images/con2/arrow-hover.svg"
+                        alt=""
+                      />
+                    </span>
+                  </div>
+                </li>
+                <li class="con2__card">
+                  <div class="con2__image">
+                    <img
+                      src="images/con2/tokuten.png"
+                      alt="TOKUTEN"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="con2__details">
+                    <p class="con2__brand">Onitsuka Tiger</p>
+                    <h3>TOKUTEN</h3>
+                    <p class="con2__price">₩190,000</p>
+                  </div>
+                  <div class="con2__colors">
+                    <span>VIEW ALL COLORS</span>
+                    <span class="con2__arrows" aria-hidden="true">
+                      <img
+                        class="con2__arrow"
+                        src="images/con2/arrow.svg"
+                        alt=""
+                      />
+                      <img
+                        class="con2__arrow con2__arrow--hover"
+                        src="images/con2/arrow-hover.svg"
+                        alt=""
+                      />
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="con2__navigation" aria-label="모델 목록 이동">
+              <button
+                type="button"
+                aria-label="이전 모델"
+                aria-controls="con2-carousel"
+                disabled=""
+              >
+                <svg
+                  class="con2__navigation-arrow con2__navigation-arrow--previous"
+                  viewBox="0 0 36 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M2 10H34L24 2"></path>
+                </svg>
+              </button>
+              <button
+                type="button"
+                aria-label="다음 모델"
+                aria-controls="con2-carousel"
+              >
+                <svg
+                  class="con2__navigation-arrow"
+                  viewBox="0 0 36 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M2 10H34L24 2"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="con2__footer">FOOTWEARS</p>
+          </div>
+        </section>
+        <section class="con3" aria-labelledby="con3-title">
+          <div class="con3__canvas">
+            <div class="con3__film con3__film--main" aria-hidden="true">
+              <video
+                src="video/con3_trairina.mp4"
+                autoplay=""
+                muted=""
+                loop=""
+                playsinline=""
+              ></video>
+            </div>
+            <div class="con3__film con3__film--side" aria-hidden="true">
+              <video
+                src="video/con3_trairina.mp4"
+                autoplay=""
+                muted=""
+                loop=""
+                playsinline=""
+              ></video>
+            </div>
+            <img
+              class="con3__frame"
+              src="images/con3/trairina.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <div class="con3__copy">
+              <p class="con3__new">NEW</p>
+              <h2 id="con3-title">TRAIRINA</h2>
+              <p class="con3__description">레이어드된 텍스처, 가벼운 실루엣</p>
+            </div>
+            <div class="con3__tiger" aria-hidden="true">
+              <img src="images/con3/tiger.svg" alt="" />
+            </div>
+          </div>
+        </section>
+        <section class="con4" aria-labelledby="con4-title">
+          <div class="con4__canvas">
+            <div class="con4__tiger" aria-hidden="true">
+              <img src="images/con4/tiger.svg" alt="" />
+            </div>
+            <h2 id="con4-title">NEW ARRIVAL</h2>
+            <ul class="con4__cards">
+              <li class="con4__card">
+                <div class="con4__photo">
+                  <img
+                    src="images/con4/cream.png"
+                    alt="TRAIRINA BIRCH/CAMEL BEIGE"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="con4__info">
+                  <p class="con4__brand">Onitsuka Tiger</p>
+                  <h3>TRAIRINA</h3>
+                  <p class="con4__price">₩260,000</p>
+                  <p class="con4__color">BIRCH/CAMEL BEIGE</p>
+                  <p class="con4__code"># 1183C736.201</p>
+                </div>
+                <div class="con4__more" aria-hidden="true">
+                  <span>VIEW MORE</span>
+                  <div class="con4__more-arrow">
+                    <img
+                      class="con4__arrow-default"
+                      src="images/con4/arrow.svg"
+                      alt=""
+                    />
+                    <img
+                      class="con4__arrow-hover"
+                      src="images/con4/arrow-hover.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </li>
+              <li class="con4__card">
+                <div class="con4__photo">
+                  <img
+                    src="images/con4/brown.png"
+                    alt="TRAIRINA BROWN/BROWN"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="con4__info">
+                  <p class="con4__brand">Onitsuka Tiger</p>
+                  <h3>TRAIRINA</h3>
+                  <p class="con4__price">₩260,000</p>
+                  <p class="con4__color">BROWN/BROWN</p>
+                  <p class="con4__code"># 1183C736.200</p>
+                </div>
+                <div class="con4__more" aria-hidden="true">
+                  <span>VIEW MORE</span>
+                  <div class="con4__more-arrow">
+                    <img
+                      class="con4__arrow-default"
+                      src="images/con4/arrow.svg"
+                      alt=""
+                    />
+                    <img
+                      class="con4__arrow-hover"
+                      src="images/con4/arrow-hover.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </li>
+              <li class="con4__card">
+                <div class="con4__photo">
+                  <img
+                    src="images/con4/black.png"
+                    alt="TRAIRINA BLACK/BLACK"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="con4__info">
+                  <p class="con4__brand">Onitsuka Tiger</p>
+                  <h3>TRAIRINA</h3>
+                  <p class="con4__price">₩260,000</p>
+                  <p class="con4__color">BLACK/BLACK</p>
+                  <p class="con4__code"># 1183C736.001</p>
+                </div>
+                <div class="con4__more" aria-hidden="true">
+                  <span>VIEW MORE</span>
+                  <div class="con4__more-arrow">
+                    <img
+                      class="con4__arrow-default"
+                      src="images/con4/arrow.svg"
+                      alt=""
+                    />
+                    <img
+                      class="con4__arrow-hover"
+                      src="images/con4/arrow-hover.svg"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <p class="con4__footer">TRAIRINA</p>
+          </div>
+        </section>
+        <section class="con5" aria-label="DENIVITA × MOMO 캠페인">
+          <div class="con5__canvas">
+            <video
+              class="con5__video"
+              src="video/DENIVITAｘMOMO_1.mp4"
+              autoplay=""
+              muted=""
+              loop=""
+              playsinline=""
+              aria-label="DENIVITA × MOMO 캠페인 영상"
+            ></video>
+          </div>
+        </section>
+        <section class="con6" aria-labelledby="con6-title">
+          <div class="con6__canvas">
+            <div class="con6__tiger" aria-hidden="true">
+              <img src="images/con6/tiger.svg" alt="" />
+            </div>
+            <img
+              class="con6__photo con6__photo--left"
+              src="images/con6/momo-left.png"
+              alt="DENIVITA 의상을 입고 누워 있는 MOMO"
+              loading="lazy"
+            />
+            <img
+              class="con6__photo con6__photo--right"
+              src="images/con6/momo-right.png"
+              alt="MOMO가 착용한 보라색 DENIVITA 의상"
+              loading="lazy"
+            />
+            <div class="con6__title">
+              <h2 id="con6-title">MOMO &amp; DENIVITA</h2>
+            </div>
+          </div>
+        </section>
+        <section class="con7" aria-labelledby="con7-title">
+          <div class="con7__canvas">
+            <div class="con7__tiger" aria-hidden="true">
+              <img src="images/con7/tiger.svg" alt="" />
+            </div>
+            <ul
+              class="con7__gallery"
+              id="con7-gallery"
+              tabindex="0"
+              role="region"
+              aria-label="DENIVITA 의류 컬렉션 가로 스크롤"
+            >
+              <li class="con7__card con7__card--dark-text">
+                <img
+                  src="images/con7/wide-denim.png"
+                  alt="WS WIDE DENIM PANTS"
+                  loading="lazy"
+                />
+                <div class="con7__label">
+                  <h3>WS WIDE DENIM PANTS</h3>
+                </div>
+              </li>
+              <li class="con7__card">
+                <img
+                  src="images/con7/bomber-jacket.png"
+                  alt="WS BOMBER JACKET"
+                  loading="lazy"
+                />
+                <div class="con7__label">
+                  <h3>WS BOMBER JACKET</h3>
+                </div>
+              </li>
+              <li class="con7__card">
+                <img
+                  src="images/con7/womens-shirt.png"
+                  alt="WOMEN&#x27;S SHIRT"
+                  loading="lazy"
+                />
+                <div class="con7__label">
+                  <h3>WOMEN&#x27;S SHIRT</h3>
+                </div>
+              </li>
+              <li class="con7__card">
+                <img
+                  src="images/con7/mens-pants.png"
+                  alt="MAN’S PANTS"
+                  loading="lazy"
+                />
+                <div class="con7__label">
+                  <h3>MAN’S PANTS</h3>
+                </div>
+              </li>
+              <li class="con7__card con7__card--dark-text">
+                <img
+                  src="images/con7/womens-skirt.png"
+                  alt="WOMEN&#x27;S SKIRT"
+                  loading="lazy"
+                />
+                <div class="con7__label">
+                  <h3>WOMEN&#x27;S SKIRT</h3>
+                </div>
+              </li>
+              <li class="con7__card con7__card--dark-text">
+                <img
+                  src="images/con7/regular-denim.png"
+                  alt="REGULAR DENIM PANTS"
+                  loading="lazy"
+                />
+                <div class="con7__label">
+                  <h3>REGULAR DENIM PANTS</h3>
+                </div>
+              </li>
+            </ul>
+            <div
+              class="carousel-navigation con7__navigation"
+              aria-label="카드 목록 이동"
+            >
+              <button
+                type="button"
+                aria-label="이전 카드"
+                aria-controls="con7-gallery"
+                disabled=""
+              >
+                <svg
+                  class="carousel-navigation__previous"
+                  viewBox="0 0 36 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M2 10H34L24 2"></path>
+                </svg>
+              </button>
+              <button
+                type="button"
+                aria-label="다음 카드"
+                aria-controls="con7-gallery"
+              >
+                <svg
+                  class=""
+                  viewBox="0 0 36 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M2 10H34L24 2"></path>
+                </svg>
+              </button>
+            </div>
+            <h2 id="con7-title">DENIVITA</h2>
+          </div>
+        </section>
+        <section class="con8" aria-labelledby="con8-title">
+          <div class="con8__canvas">
+            <div class="con8__tiger" aria-hidden="true">
+              <img src="images/con8/tiger.svg" alt="" />
+            </div>
+            <div class="con8__photo con8__photo--top" aria-hidden="true">
+              <img src="images/con8/bag.png" alt="" loading="lazy" />
+            </div>
+            <div class="con8__photo con8__photo--bottom">
+              <img
+                src="images/con8/bag.png"
+                alt="오렌지색 스트랩과 체인이 달린 분홍색 Onitsuka Tiger 가방"
+                loading="lazy"
+              />
+            </div>
+            <h2 id="con8-title">BAG &amp; ACCESSORIES</h2>
+            <div class="con8__underline" aria-hidden="true">
+              <div class="con8__underline-crop">
+                <img src="images/con8/underline.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="con9" aria-labelledby="con9-title">
+          <div class="con9__canvas">
+            <div class="con9__tiger" aria-hidden="true">
+              <img src="images/con7/tiger.svg" alt="" />
+            </div>
+            <ul
+              class="con9__gallery"
+              id="con9-gallery"
+              tabindex="0"
+              role="region"
+              aria-label="액세서리 상품 가로 스크롤"
+            >
+              <li class="con9__card">
+                <div class="con9__photo con9__photo--socks">
+                  <img
+                    src="images/con9/socks.png"
+                    alt="MIDDLE SOCKS"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="con9__info">
+                  <p class="con9__brand">Onitsuka Tiger</p>
+                  <h3>MIDDLE SOCKS</h3>
+                  <p class="con9__price">₩20,000</p>
+                </div>
+              </li>
+              <li class="con9__card">
+                <div class="con9__photo con9__photo--beanie">
+                  <img
+                    src="images/con9/beanie.png"
+                    alt="BEANIE"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="con9__info">
+                  <p class="con9__brand">Onitsuka Tiger</p>
+                  <h3>BEANIE</h3>
+                  <p class="con9__price">₩100,000</p>
+                </div>
+              </li>
+              <li class="con9__card">
+                <div class="con9__photo con9__photo--tote-bag">
+                  <img
+                    src="images/con9/tote-bag.png"
+                    alt="SMALL CANVAS TOTE BAG"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="con9__info">
+                  <p class="con9__brand">Onitsuka Tiger</p>
+                  <h3>SMALL CANVAS TOTE BAG</h3>
+                  <p class="con9__price">₩220,000</p>
+                </div>
+              </li>
+              <li class="con9__card">
+                <div class="con9__photo con9__photo--small-shoulder-bag">
+                  <img
+                    src="images/con9/small-shoulder-bag.png"
+                    alt="WS SMALL SHOULDER BAG"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="con9__info">
+                  <p class="con9__brand">Onitsuka Tiger</p>
+                  <h3>WS SMALL SHOULDER BAG</h3>
+                  <p class="con9__price">₩170,000</p>
+                </div>
+              </li>
+              <li class="con9__card">
+                <div class="con9__photo con9__photo--shoulder-bag">
+                  <img
+                    src="images/con9/shoulder-bag.png"
+                    alt="SHOULDER BAG"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="con9__info">
+                  <p class="con9__brand">Onitsuka Tiger</p>
+                  <h3>SHOULDER BAG</h3>
+                  <p class="con9__price">₩250,000</p>
+                </div>
+              </li>
+              <li class="con9__card">
+                <div class="con9__photo con9__photo--cap">
+                  <img src="images/con9/cap.png" alt="CAP" loading="lazy" />
+                </div>
+                <div class="con9__info">
+                  <p class="con9__brand">Onitsuka Tiger</p>
+                  <h3>CAP</h3>
+                  <p class="con9__price">₩140,000</p>
+                </div>
+              </li>
+            </ul>
+            <div
+              class="carousel-navigation con9__navigation"
+              aria-label="카드 목록 이동"
+            >
+              <button
+                type="button"
+                aria-label="이전 카드"
+                aria-controls="con9-gallery"
+                disabled=""
+              >
+                <svg
+                  class="carousel-navigation__previous"
+                  viewBox="0 0 36 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M2 10H34L24 2"></path>
+                </svg>
+              </button>
+              <button
+                type="button"
+                aria-label="다음 카드"
+                aria-controls="con9-gallery"
+              >
+                <svg
+                  class=""
+                  viewBox="0 0 36 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M2 10H34L24 2"></path>
+                </svg>
+              </button>
+            </div>
+            <h2 id="con9-title">Onitsuka Accessories</h2>
+          </div>
+        </section>
+      </main>
+      <footer id="footer" class="footer">
+        <div class="footer__canvas">
+          <ul class="footer__menu" aria-label="안내 메뉴">
+            <li>
+              <span>고객센터</span>
+            </li>
+            <li>
+              <span class="footer__divider" aria-hidden="true">
+                <img src="images/footer/menu-divider.svg" alt="" />
+              </span>
+              <span>자주하는 질문</span>
+            </li>
+            <li>
+              <span class="footer__divider" aria-hidden="true">
+                <img src="images/footer/menu-divider.svg" alt="" />
+              </span>
+              <span>멤버십 서비스</span>
+            </li>
+            <li>
+              <span class="footer__divider" aria-hidden="true">
+                <img src="images/footer/menu-divider.svg" alt="" />
+              </span>
+              <span>회사소개</span>
+            </li>
+            <li>
+              <span class="footer__divider" aria-hidden="true">
+                <img src="images/footer/menu-divider.svg" alt="" />
+              </span>
+              <span>매장 찾기</span>
+            </li>
+          </ul>
+          <div class="footer__tiger" aria-hidden="true">
+            <img src="images/footer/tiger.svg" alt="" />
+          </div>
+          <p class="footer__title">Onitsuka Tiger</p>
+          <div class="footer__customer">
+            <p>고객 상담실</p>
+            <p class="footer__phone">080-929-3535 / 080-930-3535</p>
+          </div>
+          <div class="footer__registration">
+            <p>사업자등록번호 : 109-86-10809</p>
+            <p>통신판매신고 2018-서울중구-0740</p>
+            <p>대표 전화 : 02-3663-8335</p>
+          </div>
+          <div class="footer__company">
+            <p class="footer__company-name">
+              <span>(주) 아식스 코리아</span>
+              <span class="footer__divider" aria-hidden="true">
+                <img src="images/footer/company-divider.svg" alt="" />
+              </span>
+              <span>대표 : 김원무</span>
+            </p>
+            <p>주소 : 서울특별시 중구 을지로 5길 16, 삼화타워 14층</p>
+          </div>
+          <div class="footer__copyright">
+            <p>© 2026 Onitsuka Tiger Korea</p>
+            <p class="footer__trademark">
+              ONITSUKA TIGER IS A REGISTERED TRADEMARK OF<br />ASICS CORPORATION
+            </p>
+          </div>
+        </div>
+      </footer>
+      <button
+        class="back-to-top"
+        type="button"
+        aria-label="페이지 맨 위로 이동"
+      >
+        <span
+          class="back-to-top__state back-to-top__state--default"
+          aria-hidden="true"
+        >
+          <img
+            class="back-to-top__circle"
+            src="images/top/circle-default.svg"
+            alt=""
+          />
+          <img
+            class="back-to-top__arrow"
+            src="images/top/arrow-default.svg"
+            alt=""
+          />
+          <span>TOP</span>
+        </span>
+        <span
+          class="back-to-top__state back-to-top__state--hover"
+          aria-hidden="true"
+        >
+          <img
+            class="back-to-top__circle"
+            src="images/top/circle-hover.svg"
+            alt=""
+          />
+          <img
+            class="back-to-top__arrow"
+            src="images/top/arrow-hover.svg"
+            alt=""
+          />
+          <span>TOP</span>
+        </span>
+      </button>
+    </div>
+    <script src="js/vendor/gsap.min.js"></script>
+    <script src="js/vendor/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
