@@ -39,6 +39,7 @@ img {
 .hero__header { position: relative; display: flex; gap: 20.222cqw; align-items: center; padding: 2cqw 5.833cqw 0; }
 .hero__logo-tools { display: flex; align-items: center; justify-content: space-between; width: 44.611cqw; flex-shrink: 0; }
 .hero__nav { display: flex; gap: 3.778cqw; align-items: center; }
+.hero__menu { display: none; }
 .hero a { color: inherit; text-decoration: none; }
 .hero__nav span { font-size: 1.111cqw; font-weight: 800; line-height: normal; }
 .hero__logo img { width: 7.111cqw; height: auto; }
@@ -55,25 +56,29 @@ img {
 .hero__copy h1 { margin: 0; height: 4.722cqw; font-family: 'Bevan', Georgia, serif; font-size: 3.333cqw; font-weight: 400; line-height: normal; white-space: nowrap; }
 .hero__copy p { margin: 0; color: #ffcd00; font-size: 1.778cqw; font-weight: 800; line-height: normal; white-space: nowrap; }
 .hero a:focus-visible, .hero button:focus-visible { outline: 2px solid #ffcd00; outline-offset: 6px; }
-@media (max-width: 600px) {
-    .hero { padding: 16px; }
-    .hero__frame { min-height: 620px; aspect-ratio: auto; border-radius: 0 72px 0 72px; }
-    .hero__header { display: flex; flex-direction: column-reverse; padding: 24px 22px; gap: 24px; align-items: stretch; }
-    .hero__logo-tools { width: 100%; }
-    .hero__logo { grid-row: 1; grid-column: 1; }
-    .hero__logo img { width: 90px; }
-    .hero__nav { grid-row: 2; grid-column: 1 / -1; gap: 24px; }
-    .hero__nav span { font-size: 13px; }
-    .hero__tools { gap: 16px; }
-    .hero__bag { width: 25px; height: 28px; }
-    .hero__account { width: 28px; height: 28px; }
-    .hero__bag img, .hero__account img { top: -1px; left: -1px; transform: none; }
-    .hero__search { width: 48px; height: 32px; }
-    .hero__search > img { transform: none; clip-path: inset(0 0 0 250px); }
-    .hero__search:focus-within { width: 100px; }
-    .hero__copy { top: auto; bottom: 64px; left: 24px; width: auto; }
-    .hero__copy h1 { height: auto; font-size: clamp(26px, 7vw, 38px); }
-    .hero__copy p { margin-top: 6px; font-size: 18px; }
+@media (max-width: 1024px) {
+    .hero { padding: 8.14vw 5.81vw 0; }
+    .hero__frame { aspect-ratio: 760 / 780; border-radius: 0 7.9cqw 0 7.9cqw; }
+    .hero__video { object-position: center; filter: grayscale(1); }
+    .hero__header { z-index: 2; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 0; padding: 2.9cqw 8.5cqw 0; }
+    .hero__menu { grid-column: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: #fff; cursor: pointer; }
+    .hero__menu span { display: block; width: clamp(21px, 6cqw, 32px); height: 2px; border-radius: 2px; background: currentColor; }
+    .hero__logo-tools { display: contents; }
+    .hero__logo { grid-row: 1; grid-column: 2; justify-self: center; }
+    .hero__logo img { width: 13.2cqw; height: auto; }
+    .hero__nav { display: none; position: absolute; top: calc(100% + 12px); left: 8.5cqw; right: 8.5cqw; padding: 18px; background: #000e; border-radius: 12px; gap: 18px; flex-wrap: wrap; }
+    .hero__nav--open { display: flex; }
+    .hero__nav span { font-size: 12px; }
+    .hero__tools { grid-row: 1; grid-column: 3; justify-self: end; }
+    .hero__bag, .hero__account { display: none; }
+    .hero__search { width: 44px; height: 44px; margin: 0; }
+    .hero__search > img { top: 6px; right: 6px; transform: none; clip-path: inset(0 0 0 264px); pointer-events: none; }
+    .hero__search button { width: 44px; height: 44px; }
+    .hero__search input { inset: 0 44px 0 auto; width: 0; padding: 0; visibility: hidden; }
+    .hero__search:focus-within input { width: min(48cqw, 240px); padding: 0 12px; visibility: visible; border-bottom: 1px solid #fff; background: #000e; }
+    .hero__copy { top: auto; bottom: 4.8cqw; left: 3.7cqw; width: max-content; max-width: 92.6%; }
+    .hero__copy h1 { height: auto; font-size: 6.58cqw; line-height: 1.35; }
+    .hero__copy p { margin-top: 1cqw; font-size: 4.2cqw; font-weight: 400; line-height: 1.3; }
 }
 
 
@@ -106,7 +111,7 @@ img {
 .con1__brand-region img { width: clamp(54px, 7vw, 94px); height: auto; }
 .con1__brand-title { margin: 0; font: 400 clamp(22px, 3vw, 46px)/1.25 'Bevan', Georgia, serif; white-space: nowrap; }
 .con1__brand-category { margin: 0; font-size: clamp(11px, 1vw, 16px); line-height: 1.25; }
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
     .con1__slot-info { width: 27%; }
     .con1__slot-info p { font-size: 8px; }
     .con1__slot-info .con1__slot-name { font-size: 10px; margin-bottom: 4px; }
@@ -136,18 +141,24 @@ img {
 .con1__product h3 { position: absolute; top: 14.115cqw; left: 50%; transform: translateX(-50%); margin: 0; border: 1px solid #fff; border-radius: 30px; padding: .469cqw 2.083cqw; background: #000; font-size: .9375cqw; font-weight: 400; line-height: normal; white-space: nowrap; }
 .con1__color { position: absolute; top: 16.719cqw; width: 100%; margin: 0; font-size: .625cqw; line-height: normal; font-weight: 400; }
 .con1__code { position: absolute; top: 17.604cqw; width: 100%; margin: 0; font-size: .521cqw; line-height: normal; font-weight: 400; }
-@media (max-width: 600px) {
-    .con1__canvas { aspect-ratio: auto; padding: 64px 20px; }
-    .con1__tiger { top: 70px; left: 5%; opacity: .2; }
-    .con1__heading { position: relative; left: auto; top: auto; transform: none; margin-bottom: 40px; }
-    .con1__logo { width: 110px; margin-bottom: 18px; }
-    .con1__heading h2 { font-size: clamp(26px, 7vw, 40px); }
-    .con1__heading > p { font-size: 18px; margin-top: 8px; }
-    .con1__products { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 12px; }
-    .con1__product { position: relative; left: auto; top: auto; width: 100%; height: auto; }
-    .con1__product h3 { position: relative; top: auto; left: auto; transform: none; width: fit-content; max-width: 100%; margin: -8px auto 10px; padding: 7px 10px; font-size: 11px; }
-    .con1__color, .con1__code { position: static; font-size: 10px; }
-    .con1__code { margin-top: 4px; font-size: 9px; }
+@media (max-width: 1024px) {
+    .con1 { overflow: hidden; }
+    .con1__canvas { display: flex; flex-direction: column; aspect-ratio: auto; padding: 13vw 0 12vw; }
+    .con1__tiger { top: 18vw; left: -8%; width: 62%; opacity: .55; z-index: 0; pointer-events: none; }
+    .con1__tiger img { width: 100%; height: auto; transform: none; }
+    .con1__products { position: relative; z-index: 1; }
+    .con1__heading { position: relative; order: 2; left: auto; top: auto; transform: none; margin: 9vw 0 0; }
+    .con1__logo { width: 25.5vw; margin-bottom: 3vw; }
+    .con1__heading h2 { font-size: 8vw; line-height: 1.35; }
+    .con1__heading > p { font-size: 3.9vw; margin-top: 2.4vw; }
+    .con1__products { order: 1; display: flex; gap: 12vw; width: 100%; padding: 0 9vw 2vw; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 9vw; scrollbar-width: none; }
+    .con1__products::-webkit-scrollbar { display: none; }
+    .con1__products:focus-visible { outline: 2px solid #ffcd00; outline-offset: -2px; }
+    .con1__product { position: relative; left: auto; top: auto; flex: 0 0 44vw; width: 44vw; height: auto; scroll-snap-align: start; }
+    .con1__product h3 { position: relative; top: auto; left: auto; transform: none; width: 34vw; max-width: 100%; margin: -1vw auto 1.8vw; padding: 1.4vw 1vw; border-radius: 40px; font-size: 3.4vw; }
+    .con1__color, .con1__code { position: static; font-size: 2.8vw; }
+    .con1__code { margin-top: .4vw; font-size: 2.3vw; }
+    .con1__showcase-ui, .con1__skip { display: none; }
 }
 
 
@@ -156,6 +167,10 @@ img {
 .con1__product:is(:hover, :focus-within) h3 { background: #ffcd00; border-color: #ffcd00; color: #000; font-weight: 700; }
 .con1__product:is(:hover, :focus-within) .con1__shoe { filter: brightness(1.15) saturate(.85); }
 .con1__product:focus-visible { outline: 2px solid #ffcd00; outline-offset: 8px; border-radius: 12px; }
+@media (max-width: 1024px) {
+    .con1__product:is(:hover, :focus-within) h3 { background: #000; border-color: #fff; color: #fff; font-weight: 400; }
+    .con1__product:is(:hover, :focus-within) .con1__shoe { filter: none; }
+}
 @media (prefers-reduced-motion: reduce) {
     .con1__image img, .con1__product h3 { transition: none; }
 }
@@ -250,17 +265,17 @@ img {
 .con3__description { margin: .521cqw 0 0; font-size: 1.146cqw; line-height: normal; }
 .con3__tiger { position: absolute; top: 53.27%; left: 68.85%; width: 24.531%; height: 33.041%; }
 .con3__tiger img { max-width: none; transform: scale(calc(100cqw / 1920px)); transform-origin: top left; }
-@media (max-width: 600px) {
-    .con3__canvas { min-height: 710px; aspect-ratio: auto; }
+@media (max-width: 1024px) {
+    .con3__canvas { min-height: 710px; aspect-ratio: auto; padding-top: 24px; }
     .con3__film { height: 430px; }
-    .con3__film--main { top: 24px; left: 8%; width: 55%; border-bottom-left-radius: 72px; }
-    .con3__film--side { top: 90px; left: 65.5%; width: 20%; border-top-right-radius: 72px; }
-    .con3__frame { top: 14px; left: 3%; width: 86%; height: 466px; }
-    .con3__copy { top: 540px; left: 5%; width: 90%; }
+    .con3__film--main { top: 164px; left: 8%; width: 55%; border-bottom-left-radius: 72px; }
+    .con3__film--side { top: 230px; left: 65.5%; width: 20%; border-top-right-radius: 72px; }
+    .con3__frame { top: 154px; left: 3%; width: 86%; height: 466px; }
+    .con3__copy { position: relative; top: auto; left: auto; width: 90%; margin-inline: auto; }
     .con3__new { font-size: 14px; }
     .con3__copy h2 { font-size: clamp(32px, 8vw, 46px); }
     .con3__description { margin-top: 8px; font-size: 14px; }
-    .con3__tiger { top: 520px; left: 66%; }
+    .con3__tiger { top: 12px; left: 72%; opacity: .5; }
     .con3__tiger img { transform: scale(.22); }
 }
 
@@ -298,13 +313,15 @@ img {
 .con4__footer { position: absolute; top: 87.963%; right: 4.167%; margin: 0; color: #ffcd00; font: 400 1.25cqw/1.4 'Bevan', Georgia, serif; }
 .con4__detail-photo { position: relative; aspect-ratio: 472 / 384.4473; }
 .con4__detail-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
-@media (max-width: 700px) {
-    .con4__canvas { aspect-ratio: auto; padding: 64px 20px 48px; }
+@media (max-width: 1024px) {
+    .con4__canvas { aspect-ratio: auto; padding: 64px 0 48px; }
     .con4__tiger { top: 36px; left: 20px; }
     .con4__tiger img { transform: scale(.45); }
     .con4__canvas > h2 { position: static; font-size: clamp(24px, 5vw, 34px); margin: 0 0 40px; }
-    .con4__cards { position: static; width: 100%; grid-template-columns: 1fr; gap: 28px; justify-items: center; }
-    .con4__card { width: min(100%, 360px); height: 424px; border-radius: 0 48px 0 48px; }
+    .con4__cards { position: static; display: flex; width: 100%; gap: 20px; padding: 0 20px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; scrollbar-width: none; }
+    .con4__cards::-webkit-scrollbar { display: none; }
+    .con4__cards:focus-visible { outline: 2px solid #ffcd00; outline-offset: -2px; }
+    .con4__card { flex: 0 0 min(82vw, 360px); width: min(82vw, 360px); height: 424px; border-radius: 0 48px 0 48px; scroll-snap-align: start; }
     .con4__photo { height: 149px; margin-top: 71px; }
     .con4__info { margin-top: 7px; }
     .con4__brand { font-size: 25px; margin-bottom: 8px; }
@@ -315,7 +332,7 @@ img {
     .con4__more { height: 52px; padding-inline: 20px; }
     .con4__more span { font-size: 10px; }
     .con4__more img { transform: scale(.85); }
-    .con4__footer { position: static; margin-top: 48px; font-size: 16px; text-align: right; }
+    .con4__footer { position: static; margin: 48px 20px 0; font-size: 16px; text-align: right; }
 }
 
 /* Con5.css */
@@ -519,8 +536,8 @@ img {
 .footer__trademark { font-size: .78125cqw; line-height: 1.5; white-space: nowrap; }
 @media (max-width: 700px) {
     .footer__canvas { aspect-ratio: auto; padding: 28px 24px 36px; display: flex; flex-direction: column; gap: 20px; }
-    .footer__menu { position: static; transform: none; justify-content: center; flex-wrap: wrap; gap: 12px; font-size: 12px; }
-    .footer__menu li { gap: 12px; }
+    .footer__menu { position: static; transform: none; width: 100%; justify-content: center; flex-wrap: nowrap; gap: clamp(4px, 1.5cqw, 10px); font-size: clamp(9px, 3cqw, 12px); }
+    .footer__menu li { flex-shrink: 0; gap: clamp(4px, 1.5cqw, 10px); }
     .footer__divider { height: 13px; }
     .footer__divider img { transform: rotate(90deg); }
     .footer__tiger { position: relative; top: auto; left: auto; width: 56px; height: 59px; margin: 8px auto 0; }

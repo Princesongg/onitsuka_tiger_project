@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -15,7 +15,7 @@
     <meta name="twitter:image" content="images/og-onitsuka.png" />
     <title>jhi-onitsuka-tiger-project</title>
     <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.css?v=mobile-swipe-2" />
   </head>
   <body>
     <p id="skipNav">
@@ -34,7 +34,10 @@
             aria-hidden="true"
           ></video>
           <header id="header" class="hero__header">
-            <nav class="hero__nav" aria-label="주 메뉴">
+            <button class="hero__menu" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="hero-nav">
+              <span></span><span></span><span></span>
+            </button>
+            <nav id="hero-nav" class="hero__nav" aria-label="주 메뉴">
               <span>MENU</span>
               <span>MAGAZINE</span>
               <span>BRAND</span>
@@ -102,7 +105,7 @@
                 <h2 id="con1-title">BEST SELLERS</h2>
                 <p>FOOTWEAR</p>
               </div>
-              <ul class="con1__products">
+              <ul class="con1__products" tabindex="0" aria-label="베스트셀러 신발 목록, 좌우로 스와이프">
                 <li
                   class="con1__product"
                   style="
@@ -582,7 +585,7 @@
               <img src="images/con4/tiger.svg" alt="" />
             </div>
             <h2 id="con4-title">NEW ARRIVAL</h2>
-            <ul class="con4__cards">
+            <ul class="con4__cards" tabindex="0" aria-label="TRAIRINA 상품 목록, 좌우로 스와이프">
               <li class="con4__card">
                 <div class="con4__photo">
                   <img
@@ -1082,6 +1085,6 @@
     </div>
     <script src="js/vendor/gsap.min.js"></script>
     <script src="js/vendor/ScrollTrigger.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=mobile-swipe-2"></script>
   </body>
 </html>

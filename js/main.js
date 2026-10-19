@@ -62,6 +62,28 @@
     initCarousel('con9-gallery', '.con9__card');
     document.querySelector('.back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: motion() }));
     document.querySelector('.hero__search').addEventListener('submit', event => event.preventDefault());
+    const menu = document.querySelector('.hero__menu');
+    const nav = document.querySelector('.hero__nav');
+    const closeMenu = () => {
+        menu.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-label', '메뉴 열기');
+        nav.classList.remove('hero__nav--open');
+    };
+    menu.addEventListener('click', () => {
+        const open = menu.getAttribute('aria-expanded') !== 'true';
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+        nav.classList.toggle('hero__nav--open', open);
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') {
+            closeMenu();
+            menu.focus();
+        }
+    });
+    document.addEventListener('click', event => {
+        if (!event.target.closest('.hero__header')) closeMenu();
+    });
     const main = document.querySelector('.con3__film--main video');
     const side = document.querySelector('.con3__film--side video');
     const sync = () => { if (side.readyState >= 1 && Math.abs(main.currentTime - side.currentTime) > .1) side.currentTime = main.currentTime; };
@@ -89,8 +111,9 @@ function initShowcase() {
         const canvas = section.querySelector('.con1__canvas');
         const media = gsap.matchMedia();
         let disposed = false;
-        media.add({ mobile: '(max-width: 600px)', desktop: '(min-width: 601px)' }, context => {
-            const { mobile } = context.conditions;
+        // Create and revert the pinned scene only within the desktop breakpoint.
+        media.add('(min-width: 1025px)', () => {
+            const mobile = false;
             const products = Array.from(canvas.querySelectorAll('.con1__product'));
             const heading = canvas.querySelector('.con1__heading');
             const ui = stage.querySelector('.con1__showcase-ui');
