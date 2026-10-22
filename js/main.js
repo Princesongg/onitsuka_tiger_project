@@ -234,3 +234,40 @@ function initShowcase() {
         };
 }
 initShowcase();
+
+function initCampaignReveal() {
+    const section = document.querySelector('.con5');
+    const gsap = window.gsap;
+    const ScrollTrigger = window.ScrollTrigger;
+    if (!section || !gsap || !ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger);
+    const stage = section.querySelector('.con5__canvas');
+    const typeVideo = section.querySelector('.con5__video--type');
+    const fullVideo = section.querySelector('.con5__video--full');
+    // Keep the two edits close in time while dissolving between them.
+    const syncCampaign = () => {
+        if (typeVideo.readyState < 1 || fullVideo.readyState < 1 || fullVideo.seeking) return;
+        if (!Number.isFinite(fullVideo.duration) || fullVideo.duration <= 0) return;
+        const time = typeVideo.currentTime % fullVideo.duration;
+        if (Math.abs(fullVideo.currentTime - time) > 0.35) fullVideo.currentTime = time;
+    };
+    typeVideo.addEventListener('loadedmetadata', syncCampaign);
+    fullVideo.addEventListener('loadedmetadata', syncCampaign);
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+        const timeline = gsap.timeline({
+            scrollTrigger: {
+                id: 'campaign-reveal', trigger: section, pin: stage,
+                start: 'top top', end: () => '+=' + window.innerHeight * 2.6,
+                scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true,
+                onEnter: syncCampaign,
+                onEnterBack: syncCampaign,
+            },
+        });
+        // Hold the lettering still as the surrounding darkness dissolves away.
+        timeline.to(typeVideo, { autoAlpha: 1, duration: 0.12 })
+            .to(typeVideo, { autoAlpha: 0, duration: 1.1, ease: 'sine.inOut' })
+            .to(fullVideo, { opacity: 1, duration: 0.24 });
+    }, section);
+}
+initCampaignReveal();

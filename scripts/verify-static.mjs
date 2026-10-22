@@ -26,7 +26,7 @@ function collect(value) {
     else if (value && typeof value === 'object') Object.values(value).forEach(collect);
 }
 collect(context.window.onitsukaData);
-for (const asset of assets) if (!fs.existsSync(decodeURIComponent(asset))) errors.push('Missing asset: ' + asset);
+for (const asset of assets) if (!fs.existsSync(decodeURIComponent(asset.split(/[?#]/)[0]))) errors.push('Missing asset: ' + asset);
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
 // Titles in inert popup templates are mounted one popup at a time.
 const liveHtml = html.replace(/<template\b[\s\S]*?<\/template>/g, '');

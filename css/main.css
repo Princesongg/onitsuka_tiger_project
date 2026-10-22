@@ -181,10 +181,13 @@ img {
 
 
 .con1__skip { opacity: 0; visibility: hidden; position: absolute; top: min(calc(97svh - clamp(0px, calc(20svh - 100px), 90px) + 8px), calc(100svh - 48px)); left: 50%; z-index: 10; display: grid; place-items: center; width: 56px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; transform: translateX(-50%); }
-.con1__skip img { max-width: none; transform: rotate(180deg) scale(1.5); transition: transform .2s ease; }
-.con1__skip:hover img { transform: translateY(4px) rotate(180deg) scale(1.5); }
+.con1__skip img { max-width: none; transform: rotate(180deg) scale(1.5); animation: con1-skip-float 1.6s ease-in-out infinite; }
+@keyframes con1-skip-float {
+    0%, 100% { transform: translateY(0) rotate(180deg) scale(1.5); }
+    50% { transform: translateY(5px) rotate(180deg) scale(1.5); }
+}
 .con1__skip:focus-visible { outline: 2px solid #ffcd00; outline-offset: 2px; border-radius: 8px; }
-@media (prefers-reduced-motion: reduce) { .con1__skip img { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .con1__skip img { animation: none; } }
 /* Con2.css */
 .con2 { background: #000; color: #fff; font-family: 'SUITE', sans-serif; overflow: hidden; }
 .con2__inner { container-type: inline-size; max-width: 1920px; margin-inline: auto; padding-top: 5.677cqw; padding-bottom: 5.3cqw; }
@@ -344,21 +347,22 @@ img {
 .con5__canvas {
     position: relative;
     width: 100%;
-    max-width: 1920px;
-    aspect-ratio: 1920 / 1080;
-    margin-inline: auto;
+    height: 100svh;
     overflow: hidden;
+    isolation: isolate;
+    background: #000;
 }
 
 .con5__video {
     position: absolute;
-    top: 5.185185%;
-    left: 10%;
-    width: 80%;
-    height: 94.814815%;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     display: block;
-    object-fit: contain;
+    object-fit: cover;
 }
+.con5__video--type { z-index: 1; object-fit: contain; background: #000; }
+@media (prefers-reduced-motion: reduce) { .con5__video--type { display: none; } }
 
 /* Con6.css */
 .con6 {
@@ -471,6 +475,7 @@ img {
 .con8__underline-crop img { position: absolute; top: -46.36%; left: .57%; width: 100%; height: 167.89%; max-width: none; }
 
 /* Con9.css */
+@font-face { font-family: 'SUITE Accessories'; src: url('../images/hero/SUITE-ExtraBold.woff2') format('woff2'); font-weight: 800; font-display: swap; }
 .con9 { background: #000; color: #000; font-family: 'SUITE', sans-serif; }
 .con9__canvas { position: relative; container-type: inline-size; width: 100%; max-width: 1920px; aspect-ratio: 1920 / 1080; margin-inline: auto; overflow: hidden; }
 .con9__tiger { position: absolute; top: 10.09%; left: 3.91%; }
@@ -486,17 +491,15 @@ img {
 .con9__photo--small-shoulder-bag img { position: absolute; top: -13.65%; left: 8.74%; width: 82.64%; height: 126.6%; max-width: none; object-fit: fill; }
 .con9__info { position: absolute; top: 59.090909%; width: 100%; display: flex; flex-direction: column; align-items: center; }
 .con9__brand { margin: 0 0 .3125cqw; color: #dbdbdb; font: 400 1.666667cqw/normal 'Bevan', Georgia, serif; }
-.con9__info h3 { margin: 0; font-size: 1.5625cqw; font-weight: 800; line-height: normal; white-space: nowrap; }
+.con9__info h3 { margin: 0; font-family: 'SUITE Accessories', 'SUITE', sans-serif; font-size: 1.5625cqw; font-weight: 800; line-height: normal; white-space: nowrap; }
 .con9__price { margin: .260417cqw 0 0; color: #7d7d7d; font-size: 1.25cqw; font-weight: 700; line-height: normal; }
 .con9__more { position: absolute; bottom: 0; left: 0; width: 100%; height: 11.818182%; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding: 0 1.302083cqw; border: 0; background: #000; color: #ffcd00; }
-.con9__more > span:first-child { font-size: .572917cqw; line-height: normal; }
-.con9__arrow { display: grid; }
-.con9__arrow img { grid-area: 1 / 1; max-width: none; transform: scale(calc(100cqw / 1920px)); transform-origin: right top; }
-.con9__arrow-hover { opacity: 0; }
+.con9__more > span:first-child { position: absolute; left: 73.777778%; top: 40%; font-size: .572917cqw; line-height: normal; }
+.con9__arrow { position: absolute; right: 5.388889%; top: 57.307692%; width: 4.348958cqw; height: .390627cqw; }
+.con9__arrow img { max-width: none; transform: scale(calc(100cqw / 1920px)); transform-origin: left top; }
 @media (hover: hover) and (pointer: fine) {
 .con9__card:hover .con9__more { background: #ffcd00; color: #000; }
-.con9__card:hover .con9__arrow-default { opacity: 0; }
-.con9__card:hover .con9__arrow-hover { opacity: 1; }
+.con9__card:hover .con9__arrow img { filter: brightness(0); }
 }
 .con9__more:focus-visible { outline: 2px solid #000; outline-offset: -4px; }
 .con9__canvas > h2 { position: absolute; top: 87.962963%; left: 88.307292%; transform: translateX(-50%); margin: 0; color: #ffcd00; font: 400 1.25cqw/normal 'Bevan', Georgia, serif; white-space: nowrap; }
@@ -511,7 +514,8 @@ img {
     .con9__price { margin-top: .888889cqw; font-size: 4.266667cqw; }
     .con9__more { padding-inline: 18px; }
     .con9__more > span:first-child { font-size: 10px; }
-    .con9__arrow img { transform: scale(.8); }
+    .con9__arrow { width: 14.844444cqw; height: 1.33334cqw; }
+    .con9__arrow img { transform: scale(calc(80cqw / 450px)); }
     .con9__canvas > h2 { top: auto; bottom: 28px; left: auto; right: 20px; transform: none; font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .con9__more { transition: none; } }
@@ -522,6 +526,8 @@ img {
 .footer p { margin: 0; }
 .footer__menu { position: absolute; top: 7.714286%; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 1.5625cqw; margin: 0; padding: 0; list-style: none; font-size: .9375cqw; line-height: normal; white-space: nowrap; }
 .footer__menu li { display: flex; align-items: center; gap: 1.5625cqw; }
+.footer__menu .footer__divider { width: 1px; height: .8em; background: #0000004d; }
+.footer__menu .footer__divider img { display: none; }
 .footer__divider { position: relative; display: inline-block; flex-shrink: 0; width: 0; height: .677083cqw; }
 .footer__divider img { position: absolute; top: 0; left: 0; max-width: none; transform: rotate(90deg) scale(calc(100cqw / 1920px)); transform-origin: top left; }
 .footer__tiger { position: absolute; top: 19%; left: 47.083333%; }
